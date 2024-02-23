@@ -127,6 +127,11 @@ Win32MainWindowCallback(HWND Window,
                 }
                 printf("\n");
             }
+            
+            bool AltKeyWasDown = LParam & 1 << 29;
+            if (VKCode == VK_F4 && AltKeyWasDown){
+                Running = false;
+            }
         } break;
     
         case WM_SIZE:{
